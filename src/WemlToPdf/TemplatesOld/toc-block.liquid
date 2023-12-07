@@ -1,0 +1,10 @@
+{% assign chapter = item.Chapter %}
+{% assign children = item.Children %}
+<li class="toc-chap"><a href="#t{{ item.ElementId }}"></a>
+{% if children.size > 0 %}
+    <ul class="toc-subchap-{{ chapter.Level }}">
+        {% for child in children %}
+            {% render "toc-block", item: child %}
+        {% endfor %}
+    </ul>
+{% endif %}</li>

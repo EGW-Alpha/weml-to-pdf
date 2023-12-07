@@ -1,0 +1,7 @@
+<section id="title-page">
+    {% for para in paragraphs %}
+        {{ para.Content }}
+    {% endfor %}
+    <p class="book-author">{{ publication.Author.FirstName }} {{ publication.Author.MiddleName }} {{ publication.Author.LastName }}</p>
+    <p class="book-publisher">{{ publication.Publisher }}</p>
+</section>

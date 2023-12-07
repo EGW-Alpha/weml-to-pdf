@@ -1,0 +1,42 @@
+@media print {
+    @page {
+        size: {{ pageSize }} {{ pageOrientation }};
+        /* size: 140mm 200mm; */
+        margin: 10mm 15mm;
+        bleed: 6mm;
+        marks: crop cross;
+    }
+
+    /* @page:left {
+        margin-left: 35mm;
+        margin-right: 15mm;
+    }
+
+    @page:right {
+        margin-left: 15mm;
+        margin-right: 35mm;
+    } */
+
+    section {
+        break-before: right;
+    }
+
+    @page:blank {
+        @top-left-corner { content: none; }
+        @top-left { content: none; }
+        @top-center { content: none; }
+        @top-right { content: none; }
+        @top-right-corner { content: none; }
+        @right-top { content: none; }
+        @right-middle { content: none; }
+        @right-bottom { content: none; }
+        @bottom-right-corner { content: none; }
+        @bottom-right { content: none; }
+        @bottom-center { content: none; }
+        @bottom-left { content: none; }
+        @bottom-left-corner { content: none; }
+        @left-bottom { content: none; }
+        @left-middle { content: none; }
+        @left-top { content: none; }
+    }
+}

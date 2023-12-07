@@ -1,0 +1,6 @@
+[submodule "vendor/EGWWritings-PublicationManagement"]
+	path = vendor/EGWWritings-PublicationManagement
+	url = git@github.com:EGW-Alpha/EGWWritings-PublicationManagement.git
+[submodule "vendor/EGWWritings-Api"]
+	path = vendor/EGWWritings-Api
+	url = git@github.com:EGW-Alpha/EGWWritings-Api.git

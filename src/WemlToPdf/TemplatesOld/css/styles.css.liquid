@@ -1,0 +1,147 @@
+html {
+    --serif: 'spectral', serif;
+    --sans-serif: 'hk-grotesk', sans-serif;
+    --font-size: 13px;
+    --font-size-notes: 9px;
+    --line-height: 15px;
+    --line-height-notes: calc(15px*2/3);
+    --indent: 6mm;
+    --baseline: 15px;
+}
+
+section {
+    break-before: right;
+    position: relative;
+}
+
+p.standard-indented {
+    text-indent: 30px;
+}
+
+.pagenumber {
+    font-size: var(--font-size-notes);
+    color: rgb(128, 128, 128);
+    display: block;
+}
+
+.pagenumber::before {
+    content: "[";
+}
+
+.pagenumber::after {
+    content: "]";
+}
+
+h3:before,
+h2:before {
+    display: block;
+    font-size: 13px;
+    line-height: 15px;
+    margin-bottom: 9px;
+
+}
+
+.shorter {
+    position: running(shorter);
+    font-family: var(--serif);
+    font-size: var(--font-size);
+    font-weight: normal;
+    text-align: left;
+    font-style: italic;
+    font-variant-numeric: oldstyle-nums;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: "";
+}
+
+.toc-line {
+    position: running(tocLine);
+    font-family: var(--serif);
+    font-size: var(--font-size);
+    font-weight: normal;
+    text-align: left;
+    font-style: italic;
+    font-variant-numeric: oldstyle-nums;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: "";
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+h2, h3, h4, h5, h6 {
+    break-after: avoid;
+}
+
+.footnotes {
+    font-size: var(--font-size-notes);
+    border-top: 1px solid black;
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+h3,
+h2 {
+    display: block;
+    {% comment %}height: 28mm;{% endcomment %}
+    {% comment %}padding-top: 7mm;{% endcomment %}
+    height: 47.7mm;
+    /* 63.5mm - 15.8mm */
+    padding-top: 15.8mm;
+    font-size: 18px;
+    /* 21 */
+    line-height: 23px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+p {
+    position: relative;
+}
+
+p:not(.shorter),
+li
+{
+    font-family: 'spectral', serif;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 400
+}
+
+p:not(.shorter),
+li {
+    text-indent: 6mm;
+    text-align: justify;
+    margin: 0;
+    orphans: 2;
+    widows: 2;
+    hyphens: auto;
+    hyphenate-before: 4;
+    hyphenate-after: 3;
+}
+
+.titlechapter+p,
+.shorter+p,
+h2+p,
+h3+p,
+h4+p,
+h5+p,
+h6+p,
+h3+div+p,
+h4+div+p,
+h2+span+p,
+h3+span+p,
+h4+span+p,
+h5+span+p,
+h6+span+p,
+table+p,
+.center+p,
+.note-titre+p,
+.center,
+.separator+p {
+    text-indent: 0 !important;
+}

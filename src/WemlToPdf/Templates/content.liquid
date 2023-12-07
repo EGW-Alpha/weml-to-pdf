@@ -1,0 +1,11 @@
+{% assign cnt = 1 %}
+<section id="section-{{ cnt }}">
+    {% for para in paragraphs %}
+        {% if para.HeadingLevel > 1 %}
+            {% if config.MinHeadingLevel != 0 and para.HeadingLevel == config.MinHeadingLevel %}
+            {% endif %}
+        {% else %}
+            {{ para.Content }}
+        {% endif %}
+    {% endfor %}
+</section>

@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WemlToPdf", "src\WemlToPdf\WemlToPdf.csproj", "{55C0B4ED-FD79-4A45-9F4E-4C5DAEAAEE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGenerator", "src\PdfGenerator\PdfGenerator.csproj", "{48B96DEC-39B1-49CA-8EC0-5E499E8C5625}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vendor", "vendor", "{5C14E284-1E51-40B8-97B4-23BA73BE1F2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egw.PubManagement.Persistence", "vendor\EGWWritings-PublicationManagement\src\Egw.PubManagement.Persistence\Egw.PubManagement.Persistence.csproj", "{EFC8FF09-6E6D-494C-B894-E955DE0E90E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egw.Api.WemlToHtml", "vendor\EGWWritings-Api\shared\Egw.Api.WemlToHtml\Egw.Api.WemlToHtml.csproj", "{E659E5D7-6991-46D6-85D2-F8BA0166104F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egw.PubManagement.Application", "..\..\EGWWritings-PublicationManagement\src\Egw.PubManagement.Application\Egw.PubManagement.Application.csproj", "{D27C90ED-5811-4D59-B43D-35DCEF11EAF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55C0B4ED-FD79-4A45-9F4E-4C5DAEAAEE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C0B4ED-FD79-4A45-9F4E-4C5DAEAAEE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C0B4ED-FD79-4A45-9F4E-4C5DAEAAEE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C0B4ED-FD79-4A45-9F4E-4C5DAEAAEE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B96DEC-39B1-49CA-8EC0-5E499E8C5625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B96DEC-39B1-49CA-8EC0-5E499E8C5625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B96DEC-39B1-49CA-8EC0-5E499E8C5625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B96DEC-39B1-49CA-8EC0-5E499E8C5625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC8FF09-6E6D-494C-B894-E955DE0E90E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC8FF09-6E6D-494C-B894-E955DE0E90E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC8FF09-6E6D-494C-B894-E955DE0E90E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC8FF09-6E6D-494C-B894-E955DE0E90E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E659E5D7-6991-46D6-85D2-F8BA0166104F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E659E5D7-6991-46D6-85D2-F8BA0166104F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E659E5D7-6991-46D6-85D2-F8BA0166104F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E659E5D7-6991-46D6-85D2-F8BA0166104F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D27C90ED-5811-4D59-B43D-35DCEF11EAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27C90ED-5811-4D59-B43D-35DCEF11EAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27C90ED-5811-4D59-B43D-35DCEF11EAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27C90ED-5811-4D59-B43D-35DCEF11EAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EFC8FF09-6E6D-494C-B894-E955DE0E90E7} = {5C14E284-1E51-40B8-97B4-23BA73BE1F2B}
+		{E659E5D7-6991-46D6-85D2-F8BA0166104F} = {5C14E284-1E51-40B8-97B4-23BA73BE1F2B}
+		{D27C90ED-5811-4D59-B43D-35DCEF11EAF5} = {5C14E284-1E51-40B8-97B4-23BA73BE1F2B}
+	EndGlobalSection
+EndGlobal

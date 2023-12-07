@@ -1,0 +1,36 @@
+.toc-chap a {
+    position:relative;
+    width: 90%;
+    display: block;
+}
+.toc-chap a[href]::before {
+    content: target-text(attr(href));
+}
+
+.toc-chap a[href]::after {
+    content: target-counter(attr(href url), page);
+    float: right;
+    position: absolute;
+    right: -1em;
+    top: 0;
+    /* top: 50%;
+    transform: translateX(50%); */
+}
+
+#toc-list ul {
+    margin-top: 50px;
+    list-style: none;
+    padding: 0;
+    /* width: 100%; */
+}
+
+#toc-list li {
+    text-indent: 0 !important;
+    text-align: left !important;
+    /* width: 100%; */
+}
+
+.toc-subchap-2 {
+    margin-top: 0 !important;
+    margin-left: 10px;
+}

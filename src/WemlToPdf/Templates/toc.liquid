@@ -1,0 +1,6 @@
+﻿<section id="toc">
+<h2 class="toc-header">Table of Contents</h2>
+<ul id="toc-list">
+    {% for chapter in tree %}{% render "toc-block", item: chapter %}{% endfor %}
+</ul>
+</section>

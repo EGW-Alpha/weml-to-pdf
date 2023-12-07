@@ -1,0 +1,143 @@
+h{{ chapterHeadingLevel }} {
+    string-set: chapterTitle content(text);
+}
+
+@page {
+    size: {{ pageSize }} {{ pageOrientation }};
+    .section-header {
+    }
+    .chapter-header {
+    }
+    .chapter-header + .standard-indented {
+    }
+}
+
+@page:right {
+    @top-right-corner {
+        content: counter(page);
+        font-family: var(--serif);
+        font-size: var(--font-size);
+        font-weight: normal;
+        line-height: var(--line-height);
+        /* vertical-align: bottom; */
+        margin-bottom: 14px;
+        font-variant-numeric: oldstyle-nums;
+    }
+
+    @top-left {
+        /* vertical-align: bottom; */
+        /* padding-bottom: 10mm; */
+        /* content: string(booktitle); */
+    }
+
+    @top-left {
+        /* position: running(titleRunning); */
+        content: element(shorter);
+        /* content: string(chapterTitle, first); */
+        /* vertical-align: bottom; */
+        text-align: left;
+        margin-bottom: 1px;
+        width: 85mm;
+    }
+    .pages-block {
+        position: absolute;
+        right: -2em;
+    }
+}
+
+@page:left {
+    @top-left-corner {
+        content: counter(page);
+        font-family: var(--serif);
+        font-size: var(--font-size);
+        font-weight: normal;
+        line-height: var(--line-height);
+        vertical-align: bottom;
+        margin-bottom: 14px;
+        font-variant-numeric: oldstyle-nums;
+    }
+    
+    @top-right {
+        /* vertical-align: bottom; 
+        padding-bottom: 10mm;  */
+        text-align: right;
+        margin-bottom: 1px;
+        width: 85mm;
+        content: string(chapterTitle, first);
+        font-family: var(--serif);
+        font-size: var(--font-size);
+        font-weight: normal;
+        line-height: var(--line-height);
+    }
+    
+    .pages-block {
+        position: absolute;
+        left: -4em;
+    }
+}
+
+@page:blank {
+    @top-left-corner {
+        content: none;
+    }
+
+    @top-left {
+        content: none;
+    }
+
+    @top-center {
+        content: none;
+    }
+
+    @top-right {
+        content: none;
+    }
+
+    @top-right-corner {
+        content: none;
+    }
+
+    @right-top {
+        content: none;
+    }
+
+    @right-middle {
+        content: none;
+    }
+
+    @right-bottom {
+        content: none;
+    }
+
+    @bottom-right-corner {
+        content: none;
+    }
+
+    @bottom-right {
+        content: none;
+    }
+
+    @bottom-center {
+        content: none;
+    }
+
+    @bottom-left {
+        content: none;
+    }
+
+    @bottom-left-corner {
+        content: none;
+    }
+
+    @left-bottom {
+        content: none;
+    }
+
+    @left-middle {
+        content: none;
+    }
+
+    @left-top {
+        content: none;
+    }
+}
