@@ -1,33 +1,58 @@
-.toc-chap a {
-    position:relative;
-    width: 90%;
-    display: block;
-}
-.toc-chap a[href]::before {
-    content: target-text(attr(href));
+.toc-chap a[href] {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: auto max-content;
+    align-items: end;
 }
 
-.toc-chap a[href]::after {
-    content: target-counter(attr(href url), page);
-    float: right;
+.chapter-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.toc-chap a[href]>.chapter-title::before {
+    content: target-text(attr(data-href));
+    margin-block-start: 1em;
+    overflow: hidden;
+    line-height: var(--line-height-toc);
+}
+.chapter-page {
+    padding-left: 0.5ch;
+}
+
+.toc-chap a[href]>.chapter-page::after {
+    content: target-counter(attr(data-href), page);
+    min-width: 2ch;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    line-height: var(--line-height-toc);
+}
+
+.toc-chap>a .leaders::after {
     position: absolute;
-    right: -1em;
-    top: 0;
-    /* top: 50%;
-    transform: translateX(50%); */
+    /* padding-inline-start: .25ch; */
+    padding-inline-start: 0.5ch;
+    content: " . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . . . . "
+    ". . . . . . . . . . . . . . . . . . . . . . . ";
+    text-align: right;
+    line-height: var(--line-height-toc);
 }
 
-#toc-list ul {
-    margin-top: 50px;
-    list-style: none;
+
+#toc-list, #toc-list ul {
+    margin-top: 20px;
+    list-style-type: none;
     padding: 0;
-    /* width: 100%; */
 }
 
 #toc-list li {
     text-indent: 0 !important;
     text-align: left !important;
-    /* width: 100%; */
 }
 
 .toc-subchap-2 {

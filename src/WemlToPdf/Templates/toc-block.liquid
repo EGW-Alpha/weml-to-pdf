@@ -1,10 +1,18 @@
 {% assign chapter = item.Chapter %}
 {% assign children = item.Children %}
-<li class="toc-chap"><a href="#t{{ item.ElementId }}"></a>
+{% comment %}<li class="toc-chap"><a href="#t{{ item.ElementId }}"></a>{% endcomment %}
+{% comment %}<li class="toc-chap"><a href="#chapter-{{ chapter.ParaId }}"><span class="dotter"></span></a>{% endcomment %}
+<li class="toc-chap">
+    <a href="#chapter-{{ chapter.ParaId }}">
+        <span data-href="#chapter-{{ chapter.ParaId }}" class="chapter-title">
+            <span class="leaders" aria-hidden="true"></span></span>
+        <span data-href="#chapter-{{ chapter.ParaId }}" class="chapter-page"></span>
+    </a>
 {% if children.size > 0 %}
-    <ul class="toc-subchap-{{ chapter.Level }}">
-        {% for child in children %}
-            {% render "toc-block", item: child %}
-        {% endfor %}
-    </ul>
-{% endif %}</li>
+<ul class="toc-subchap-{{ chapter.Level }}">
+    {% for child in children %}
+        {% render "toc-block", item: child %}
+    {% endfor %}
+</ul>
+{% endif %}
+</li>

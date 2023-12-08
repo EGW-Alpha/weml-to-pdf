@@ -1,5 +1,4 @@
-using System.Text.Encodings.Web;
-using System.Text.Json;
+using System.Diagnostics;
 using Egw.Api.WemlToHtml;
 using Egw.PubManagement.Core.Problems;
 using Egw.PubManagement.Persistence;
@@ -74,7 +73,7 @@ public class WemlToPdfConverterV2 : WemlToPdf
         Console.WriteLine($"Chapters cnt: {chapters.Count}");
         Console.WriteLine($"Paragraphs cnt: {paragraphs.Count}");
 
-        System.Diagnostics.Process.Start("pagedjs-cli", $"{TempDir}/index.html -o {TempDir}/{Config.PublicationId}.pdf");
+        Process.Start("pagedjs-cli", $"{TempDir}/index.html -o {TempDir}/{Config.PublicationId}.pdf");
 
         return "";
     }
@@ -83,6 +82,7 @@ public class WemlToPdfConverterV2 : WemlToPdf
         List<PublicationChapter> chapters, List<ParagraphShort> paragraphs, CancellationToken ct)
     {
         var sections = new BookSections {PublicationId = Config.PublicationId};
+        Config.MinHeadingLevel = paragraphs.Where(r => r.HeadingLevel > 1).Min(r => r.HeadingLevel) ?? 0;
         sections.Cover = await CreateCoverSection(ct);
         sections.Toc = await CreateTocSection(chaptersTree, ct);
         sections.TitlePage = await CreateTitlePageSection(publication, chapters, paragraphs);
@@ -177,8 +177,6 @@ public class WemlToPdfConverterV2 : WemlToPdf
         var result = new List<string>();
 
         var html = new HtmlDocument();
-
-        Config.MinHeadingLevel = paragraphs.Where(r => r.HeadingLevel > 1).Min(r => r.HeadingLevel) ?? 0;
 
         result.Add($"<section id=\"section-{_sectionCnt++}\">");
         foreach (var para in paragraphs)
@@ -322,7 +320,7 @@ public class WemlToPdfConverterV2 : WemlToPdf
     {
         if (tree.First().Children.Any())
         {
-            return await TemplateSrv.Render("toc", new { tree = tree.First().Children });
+            return await TemplateSrv.Render("toc", new { tree = tree.First().Children, config = Config });
         }
 
         return "";
