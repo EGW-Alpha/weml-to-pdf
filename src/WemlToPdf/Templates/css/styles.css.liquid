@@ -11,7 +11,9 @@ html {
 }
 
 section {
-    break-before: right;
+{% if printType == "book-printing" %}    
+    break-before: right; 
+{% endif %}
     position: relative;
 }
 
@@ -114,8 +116,9 @@ h2, h3, h4, h5, h6 {
     {% comment %}margin-top: 0 !important;{% endcomment %}
     {% comment %}padding-top: 0 !important;{% endcomment %}
     text-align: left !important;
+
     display: block;
-{% if config.FootnotesLevel != config.MinHeadingLevel %}
+{% if config.FootnotesLevel != config.MinHeadingLevel and printType == "book-printing"%}
     break-after: page;
 {% endif %}
     orphans: 3;

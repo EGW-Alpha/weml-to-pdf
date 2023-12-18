@@ -42,4 +42,11 @@ var converter = new WemlToPdfConverterV2(db, new CoverFetcher(storageWrapper, db
     serviceProvider.GetRequiredService<ILoggerFactory>());
 
 
-await converter.CreatePdf(new WemlToPdfConfig {PublicationId = 128, FootnotesLevel = 3, MaxChapterLevelInToc = 3, PageSize = PageSizeEnum.A5}, new CancellationToken());
+await converter.CreatePdf(new WemlToPdfConfig
+{
+    PublicationId = 128, 
+    FootnotesLevel = 3, 
+    MaxChapterLevelInToc = 3, 
+    PageSize = PageSizeEnum.A5,
+    PrintType = PdfTargetType.BookPrinting
+}, new CancellationToken());

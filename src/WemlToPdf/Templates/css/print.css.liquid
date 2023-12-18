@@ -1,10 +1,10 @@
 @media print {
     @page {
         size: {{ pageSize }} {{ pageOrientation }};
-        /* size: 140mm 200mm; */
         margin: 10mm 15mm;
         bleed: 6mm;
         marks: crop cross;
+        /* size: 140mm 200mm; */
     }
 
     /* @page:left {
@@ -17,9 +17,9 @@
         margin-right: 35mm;
     } */
 
-    section {
+    /*section {
         break-before: right;
-    }
+    }*/
 
     @page:blank {
         @top-left-corner { content: none; }

@@ -254,7 +254,6 @@ public class WemlToPdfConverterV2 : WemlToPdf
 
         paragraphs.RemoveAll(r => paras.Select(p => p.Order).Contains(r.Order));
         paras = AggregateOriginalPages(paras.OrderBy(r => r.Order).ToList());
-        Console.WriteLine(await TemplateSrv.Render("title-page", new { publication, paragraphs = paras }));
         return await TemplateSrv.Render("title-page", new { publication, paragraphs = paras });
     }
 
@@ -328,13 +327,18 @@ public class WemlToPdfConverterV2 : WemlToPdf
 
     private async Task RenderCss()
     {
-        await TemplateSrv.RenderToFile("styles.css", "css/styles.css", new { config = Config });
+        await TemplateSrv.RenderToFile("styles.css", "css/styles.css", new
+        {
+            config = Config, 
+            printType = Config.PrintType.AsString(EnumFormat.Description)
+        });
         await TemplateSrv.RenderToFile("page.css", "css/page.css",
             new
             {
                 chapterHeadingLevel = Config.MinHeadingLevel + 1,
                 pageSize = Config.PageSize.AsString(EnumFormat.Description),
-                pageOrientation = Config.PageOrientation.AsString(EnumFormat.Description)
+                pageOrientation = Config.PageOrientation.AsString(EnumFormat.Description),
+                printType = Config.PrintType.AsString(EnumFormat.Description)
             });
         await TemplateSrv.RenderToFile("toc.css", "css/toc.css", new { });
         await TemplateSrv.RenderToFile("print.css", "css/print.css",

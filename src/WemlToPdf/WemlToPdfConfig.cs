@@ -12,7 +12,7 @@ public class WemlToPdfConfig
     /// <summary>
     /// For reading or printing
     /// </summary>
-    public PdfTargetType TargetType { get; init; }
+    public PdfTargetType PrintType { get; init; }
     
     /// <summary>
     /// Toc position
