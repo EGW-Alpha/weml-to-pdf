@@ -44,4 +44,14 @@ public class WemlToPdfConfig
     /// Show chapter name on left page 
     /// </summary>
     public bool UseChapterPartTitle { get; set; } = false;
+    
+    /// <summary>
+    /// Output folder 
+    /// </summary>
+    public string? OutputFolder { get; set; }
+    
+    /// <summary>
+    /// Auto execute external command for PDF generation 
+    /// </summary>
+    public bool CreatePdfAfterHtmlGeneration { get; set; }
 }

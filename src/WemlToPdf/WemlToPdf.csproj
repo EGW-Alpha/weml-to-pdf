@@ -16,8 +16,8 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\EGWWritings-PublicationManagement\src\Egw.PubManagement.Application\Egw.PubManagement.Application.csproj" />
       <ProjectReference Include="..\..\vendor\EGWWritings-Api\shared\Egw.Api.WemlToHtml\Egw.Api.WemlToHtml.csproj" />
+      <ProjectReference Include="..\..\vendor\EGWWritings-PublicationManagement\src\Egw.PubManagement.Application\Egw.PubManagement.Application.csproj" />
       <ProjectReference Include="..\..\vendor\EGWWritings-PublicationManagement\src\Egw.PubManagement.Persistence\Egw.PubManagement.Persistence.csproj" />
     </ItemGroup>
     

@@ -73,7 +73,10 @@ public class WemlToPdfConverterV2 : WemlToPdf
         Console.WriteLine($"Chapters cnt: {chapters.Count}");
         Console.WriteLine($"Paragraphs cnt: {paragraphs.Count}");
 
-        Process.Start("pagedjs-cli", $"{TempDir}/index.html -o {TempDir}/{Config.PublicationId}.pdf");
+        if (Config.CreatePdfAfterHtmlGeneration)
+        {
+            Process.Start("pagedjs-cli", $"{TempDir}/index.html -o {TempDir}/{Config.PublicationId}.pdf");
+        }
 
         return "";
     }
@@ -338,7 +341,8 @@ public class WemlToPdfConverterV2 : WemlToPdf
                 chapterHeadingLevel = Config.MinHeadingLevel + 1,
                 pageSize = Config.PageSize.AsString(EnumFormat.Description),
                 pageOrientation = Config.PageOrientation.AsString(EnumFormat.Description),
-                printType = Config.PrintType.AsString(EnumFormat.Description)
+                printType = Config.PrintType.AsString(EnumFormat.Description),
+                showChapterName = Config.UseChapterPartTitle
             });
         await TemplateSrv.RenderToFile("toc.css", "css/toc.css", new { });
         await TemplateSrv.RenderToFile("print.css", "css/print.css",

@@ -20,7 +20,7 @@ public class WemlToPdf
     protected WemlToPdfConfig Config = new();
 
     // protected string TempDir = Path.Join(Path.GetTempPath(), "pdf-creator", Guid.NewGuid().ToString());
-    protected string TempDir = Path.Join(Path.GetTempPath(), "pdf-creator", "{publicationId}");
+    protected string TempDir = Path.Join(Path.GetTempPath(), "pdf-creator");
     protected TemplateService TemplateSrv;
 
     public WemlToPdf(PublicationDbContext db, ICoverFetcher coverFetcher, ILoggerFactory lf)
@@ -35,7 +35,12 @@ public class WemlToPdf
 
     public void CreatePath(int publicationId)
     {
-        TempDir = TempDir.Replace("{publicationId}", publicationId.ToString());
+        if (Config.OutputFolder is not null)
+        {
+            TempDir = Config.OutputFolder;
+        }
+        
+        TempDir = Path.Join(TempDir, publicationId.ToString());
         TemplateSrv = new TemplateService(TempDir, _lf.CreateLogger<TemplateService>());
         Directory.CreateDirectory(TempDir);
     }

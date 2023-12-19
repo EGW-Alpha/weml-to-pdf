@@ -12,7 +12,7 @@ internal class PdfTemplateOptions : TemplateOptions
         Filters.AddFilter("decode", CustomTemplateFilters.Decode);
         Filters.AddFilter("html_to_utf", CustomTemplateFilters.HtmlToUtf);
         FileProvider = new EmbeddedFileProvider(
-            typeof(WemlToPdfConverter).Assembly,
+            typeof(WemlToPdfConverterV2).Assembly,
             "WemlToPdf.Templates"
         );
 

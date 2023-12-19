@@ -35,9 +35,6 @@ var storageWrapper = new StorageWrapper(
     new BlobFileStorage(
         configuration.GetConnectionString("Mp3") ?? ""));
 
-// var converter = new WemlToPdfConverter(db, new CoverFetcher(storageWrapper, dbContextFactory),
-//     serviceProvider.GetRequiredService<ILoggerFactory>());
-
 var converter = new WemlToPdfConverterV2(db, new CoverFetcher(storageWrapper, dbContextFactory),
     serviceProvider.GetRequiredService<ILoggerFactory>());
 
@@ -48,5 +45,10 @@ await converter.CreatePdf(new WemlToPdfConfig
     FootnotesLevel = 3, 
     MaxChapterLevelInToc = 3, 
     PageSize = PageSizeEnum.A5,
-    PrintType = PdfTargetType.BookPrinting
+    PrintType = PdfTargetType.BookPrinting,
+    PageOrientation = PageOrientationEnum.Portrait,
+    TocPosition = TocPositionEnum.AfterTitle,
+    UseChapterPartTitle = true,
+    OutputFolder = null,
+    CreatePdfAfterHtmlGeneration = false
 }, new CancellationToken());
